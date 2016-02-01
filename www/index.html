@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.min.css">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="framework7/js/framework7.min.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/fw7_subpage.js"></script>
+        <script type="application/javascript" src="lib/underscore.min.js"></script>
+        <script type="application/javascript" src="lib/backbone.js"></script>
+        <script type="application/javascript" src="lib/Backbone.ModelBinder.min.js"></script>
+        <script type="application/javascript" src="xdk/ad/backbone_support.js"></script>
+        <script type="application/javascript" src="xdk/ad/jquery.ba-throttle-debounce.min.js"></script>
+        <script type="application/javascript" src="xhr.js"></script>
+        <script type="application/javascript" src="xdk/services/service-credentials.js"></script>
+        <script type="application/javascript" src="xdk/services/service-methods.js"></script>
+        <script type="application/javascript" src="xdk/ad/ad_events_data.js"></script>
+        <script type="application/javascript" src="js/index_init_services.js"></script>
+        <script type="application/javascript" src="xdk/ad/index_setup_services.js"></script>
+        <script type="application/javascript" src="xdk/ad/fw7_events_data.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+    </head>
+
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div class="uwrap views">
+            <div class="upage view-main view default_background_main" id="mainpage">
+                <div class="pages">
+
+                    <div class="page navbar-fixed toolbar-fixed">
+                        <div class="navbar inner-element uib_w_1 header_background text_default" data-uib="framework7/header" data-ver="0">
+                            <div class="navbar-inner">
+                                <div class="left">
+                                    <div class="widget-container content-area horiz-area wrapping-col"></div>
+                                </div>
+                                <div class="center">FreeMuviMania</div>
+                                <div class="right">
+                                    <div class="widget-container content-area horiz-area wrapping-col"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upage-content ac0 content-area vertical-col left page-content hide-toolbar-on-scroll hide-navbar-on-scroll hide-tabbar-on-scroll" id="page_47_35">
+                            <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+                            <div class="widget uib_w_2 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="logo_1.png">
+
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div>
+                            <a class="widget uib_w_3 d-margins button button_text button_style button-big button-round" data-uib="framework7/button" data-ver="0"><span>Continue</span></a>
+                        </div>
+                        <div id="movie_options" class="upage-content vertical-col left hidden page-content hide-toolbar-on-scroll hide-navbar-on-scroll hide-tabbar-on-scroll">
+                            <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_2 col-0_12-12 column" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+                            <a class="button widget uib_w_5 d-margins button_text button_style button-round" data-uib="framework7/button" data-ver="0"><span>Box Office</span></a>
+                            <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_3 col-0_12-12 column" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+                            <a class="button widget uib_w_6 d-margins button_text button-round button_style" data-uib="framework7/button" data-ver="0"><span>Now Showing</span></a>
+                            <div class="grid grid-pad urow uib_row_6 row-height-6" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_6 col-0_12-12 column" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+
+                            <a class="button widget uib_w_7 d-margins button_text button-round button_style" data-uib="framework7/button" data-ver="0"><span>Upcoming</span></a>
+                            <div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_5 col-0_12-12 column" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+                            <a class="button widget uib_w_4 d-margins button_text button-round button_style" data-uib="framework7/button" data-ver="0"><span>In Theatres</span></a>
+                        </div>
+                        <div id="box_office" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll">
+
+                            <div class="widget uib_w_12 d-margins" data-uib="framework7/list_block" data-ver="0">
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="media-item widget uib_w_16 d-margins template" data-uib="framework7/media_item" data-ver="0" data-sm="rottentomatoesbox_office" data-sc="multiple" data-rpath=".movies[]">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <img height="80" src="{{posters.thumbnail}}">
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">{{title}}</div>
+                                                        <div class="item-after">{{mpaa_rating}}</div>
+                                                    </div>
+                                                    <div class="item-subtitle">{{year}}</div>
+                                                    <div class="item-text"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="now_showing" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll">
+                            <div class="widget uib_w_17 d-margins" data-uib="framework7/list_block" data-ver="0">
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="media-item widget uib_w_21 d-margins template" data-uib="framework7/media_item" data-ver="0" data-sm="rottentomatoesnow_showing" data-sc="multiple" data-rpath=".movies[]">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <img src="{{posters.thumbnail}}" height="80">
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">{{title}}</div>
+                                                        <div class="item-after">{{mpaa_rating}}</div>
+                                                    </div>
+                                                    <div class="item-subtitle">{{year}}</div>
+                                                    <div class="item-text">{{synopsis}}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="upcoming" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll">
+                            <div class="widget uib_w_22 d-margins" data-uib="framework7/list_block" data-ver="0">
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="media-item widget uib_w_26 d-margins template" data-uib="framework7/media_item" data-ver="0" data-sm="rottentomatoesupcoming" data-sc="multiple" data-rpath=".movies[]">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <img src="{{posters.thumbnail}}" height="80">
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">{{title}}</div>
+                                                        <div class="item-after">{{mpaa_rating}}</div>
+                                                    </div>
+                                                    <div class="item-subtitle">{{year}}</div>
+                                                    <div class="item-text">{{synopsis}}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="in_theatres" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll">
+                            <div class="widget uib_w_27 d-margins" data-uib="framework7/list_block" data-ver="0">
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="media-item widget uib_w_31 d-margins template" data-uib="framework7/media_item" data-ver="0" data-sm="rottentomatoesin_theatres" data-sc="multiple" data-rpath=".movies[]">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <img src="{{posters.thumbnail}}" height="80">
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">{{title}}</div>
+                                                        <div class="item-after">{{mpaa_rating}}</div>
+                                                    </div>
+                                                    <div class="item-subtitle">{{year}}</div>
+                                                    <div class="item-text">{{synopsis}}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="about" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll">
+                            <div class="grid grid-pad urow uib_row_9 row-height-9" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_9 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <div class="widget uib_w_32 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="logo_1.png">
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+
+                            <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
+                                <div class="col uib_col_11 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <span class="uib_shim"></span>
+                                        <p>This is it</p>
+                                    </div>
+                                </div>
+                                <span class="uib_shim"></span>
+                            </div>
+                            <div class="tarea widget uib_w_33 d-margins" data-uib="media/text" data-ver="0" name="uib_w_33">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contact" class="upage-content vertical-col left hidden page-content hide-navbar-on-scroll hide-tabbar-on-scroll"></div>
+
+                        <div class="toolbar tabbar inner-element uib_w_8 d-margins" data-uib="framework7/tab_bar" data-ver="0">
+                            <div class="toolbar-inner">
+                                <a href="#" class="tab-link widget uib_w_9 active" data-uib="framework7/tab" data-ver="0"><i class="el-th-large el icon-top" data-position="top"></i>
+                                    <span class="tabbar-label">Home</span>
+                                </a>
+                                <a href="#" class="tab-link widget uib_w_10" data-uib="framework7/tab" data-ver="0"><i class="icon-form-calendar icon icon-top" data-position="top"></i>
+                                    <span class="tabbar-label">About</span>
+                                </a>
+                                <a href="#" class="tab-link widget uib_w_11" data-uib="framework7/tab" data-ver="0"><i class="icon-form-tel icon icon-top" data-position="top"></i>
+                                    <span class="tabbar-label">Contact</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script type="application/javascript" src="framework7/my-app.js"></script>
+
+    </body>
+
+</html>
